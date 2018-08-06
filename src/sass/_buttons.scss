@@ -1,0 +1,27 @@
+// --------------------------------------------
+// BUTTONS
+// --------------------------------------------
+.button,
+a.button {
+	position: relative;
+	background-color: $brand;
+	border-radius: 5px;
+	border: 1px solid darken($brand, 2);
+	display: inline-block;
+	color: #fff !important;
+	text-align: center;
+	padding: 4px 5%;
+	min-width: 132px;
+	text-shadow: 0 0 3px rgba(0, 0, 0, 0.33);
+	@include font-size(18);
+	font-family: $globalFont;
+	font-weight: normal;
+	cursor: pointer;
+	line-height: 1.4em;
+	&:hover {
+		background-color: lighten($brand, 10);
+	}
+	&:active {
+		top: 1px;
+	}
+}

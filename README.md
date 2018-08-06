@@ -54,13 +54,12 @@ When you run `npm start`:
 When you run `npm run build`:
 
 1.  The sass-loader compiles Sass into CSS
+2.  Webpack extracts and bundles CSS into app.bundle.css.
+3.  Webpack minifies app.bundle.css. It also minifies all JS.
 
 ### How do I deploy this?
 
-`npm run build` does the following:
-
--   Minifies all JS and CSS
--   Places the resulting built project files into `/public` directory. (These are the files you'll expose to the world).
+-   Webpack places the resulting built project files into `/public` directory. (There you will see the files you'll expose to the world).
 
 [minification]: https://en.wikipedia.org/wiki/Minification_(programming)
 [treeshaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
