@@ -13,13 +13,13 @@ module.exports = {
 		path: path.join(__dirname, outDir),
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: {
 					loader: "babel-loader",
-					options: {
+					query: {
 						presets: ["env"],
 					},
 				},
@@ -35,7 +35,7 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin([outDir]),
 		new HtmlWebpackPlugin({
-			title: "Webpack Starter",
+			title: "Production",
 			inject: "body",
 		}),
 	],
