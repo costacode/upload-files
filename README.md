@@ -48,22 +48,20 @@ We're handling it differently in DEV vs PROD.
 When you run `npm start`:
 
 1.  The sass-loader compiles Sass into CSS
-2.  Webpack bundles the compiled CSS into app.js.
-3.  app.js contains code that loads styles into the &lt;head&gt; section of index.html via JavaScript. This is why there is no stylesheet reference in index.html.
+2.  Webpack bundles the compiled CSS into app.bundle.js.
+3.  app.bundle.js contains code that loads styles into the &lt;head&gt; section of index.html via JavaScript. This is why there is no stylesheet reference in index.html.
 
 When you run `npm run build`:
 
 1.  The sass-loader compiles Sass into CSS
-2.  The [extract-text-webpack-plugin][extract-text-webpack-plugin] extracts the compiled Sass into a stylesheet file app.bundle.css
 
 ### How do I deploy this?
 
 `npm run build` does the following:
 
 -   Minifies all JS and CSS
--   Places the resulting built project files into `/build` directory. (These are the files you'll expose to the world).
+-   Places the resulting built project files into `/public` directory. (These are the files you'll expose to the world).
 
 [minification]: https://en.wikipedia.org/wiki/Minification_(programming)
 [treeshaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
 [hmr]: https://webpack.js.org/concepts/hot-module-replacement/
-[extract-text-webpack-plugin]: https://github.com/webpack/extract-text-webpack-plugin
