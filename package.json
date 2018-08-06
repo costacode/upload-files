@@ -1,5 +1,5 @@
 {
-	"name": "maya",
+	"name": "maya-starter",
 	"version": "0.1.0",
 	"description": "A webpack boilerplate",
 	"main": "index.js",
