@@ -1,6 +1,4 @@
-# Maya - Webpack Starter
-
-:smile_cat:
+# :smiley_cat: Maya - Webpack Starter
 
 A webpack starter with separate development and production configurations
 
