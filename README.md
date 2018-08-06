@@ -1,4 +1,4 @@
-# Webpack Starter
+# Maya - Webpack Starter - U+1F63E
 
 A webpack starter with separate development and production configurations
 
