@@ -1,4 +1,6 @@
-# Maya - Webpack Starter - U+1F63E
+# Maya - Webpack Starter
+
+:smile_cat:
 
 A webpack starter with separate development and production configurations
 
