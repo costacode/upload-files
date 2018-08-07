@@ -11,7 +11,7 @@ function helloMaya() {
 	let element = document.createElement('div');
 
 	// Lodash, currently included via a script, is required for this line to work
-	element.innerHTML = _.join(['Hello', 'Maya'], ' ');
+	element.innerHTML = _.join(['The story', 'starts here'], ' ');
 
 	return element;
 }
@@ -22,7 +22,7 @@ document.body.appendChild(helloMaya());
 // ANOTHER THINGS
 // --------------------------------------------
 
-// Hello World
+// Hello World --
 console.log('Hello World...!');
 
 // testing babel

@@ -18,7 +18,13 @@
 		"type": "git",
 		"url": "https://github.com/costacode/maya.git"
 	},
+	"browserslist": [
+		"last 2 versions",
+		">1%",
+		"ie 9-10"
+	],
 	"devDependencies": {
+		"autoprefixer": "^9.1.0",
 		"babel-core": "^6.26.3",
 		"babel-loader": "^7.1.5",
 		"babel-preset-env": "^1.6.1",
@@ -29,11 +35,13 @@
 		"mini-css-extract-plugin": "^0.4.1",
 		"node-sass": "^4.9.2",
 		"optimize-css-assets-webpack-plugin": "^5.0.0",
+		"postcss-loader": "^2.1.6",
 		"sass-loader": "^7.1.0",
 		"style-loader": "^0.21.0",
 		"webpack": "4.16.5",
 		"webpack-cli": "^3.1.0",
 		"webpack-dev-server": "^3.1.5",
+		"webpack-md5-hash": "0.0.6",
 		"webpack-merge": "^4.1.4"
 	},
 	"dependencies": {
