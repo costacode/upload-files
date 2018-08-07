@@ -64,8 +64,9 @@ When you run `npm run build`:
 ### How do I add this on my app?
 
 -   Replicate the folder structure for src
--   Copy package.json
--   Copy Webpack configs
+-   Replicate package.json
+-   Replicate Webpack config files
+-   Replicate postCSS config file
 -   Ignore stuff (.gitignore for Git)
 -   Run 'npm install'
 
