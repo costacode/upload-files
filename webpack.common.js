@@ -30,6 +30,7 @@ module.exports = {
 			{
 				test: /\.s?[ac]ss$/,
 				use: [
+					'style-loader', // fallback
 					MiniCssExtractPlugin.loader, // Adds CSS to the DOM by injecting a <style> tag
 					{
 						loader: 'css-loader', //  interprets @import and url() like import/require()

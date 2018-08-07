@@ -8,9 +8,7 @@ module.exports = merge(common, {
 	devServer: {
 		contentBase: common.output.path,
 		compress: true,
-		host: process.env.HOST,
 		port: 3000,
-		disableHostCheck: true,
 		hot: true,
 	},
 	plugins: [

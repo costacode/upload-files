@@ -73,3 +73,7 @@ When you run `npm run build`:
 [minification]: https://en.wikipedia.org/wiki/Minification_(programming)
 [treeshaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
 [hmr]: https://webpack.js.org/concepts/hot-module-replacement/
+
+### Current issues
+
+-   Hot reloading is not supported (yet) by MiniCssExtractPlugin v0.4.1, so the page has to be refrehed to see changes
