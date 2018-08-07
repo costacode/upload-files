@@ -3,14 +3,11 @@ import another from './js/another.js';
 import css from './sass/styles.scss';
 
 // main entry point: write your JavaScript here
-console.log('Hello World!');
 
-// testing babel
-const str = 'ES6';
-console.log(`Hello you, ${str}`);
-
-// a component
-function component() {
+// --------------------------------------------
+// PRINT HELLO MAYA
+// --------------------------------------------
+function helloMaya() {
 	let element = document.createElement('div');
 
 	// Lodash, currently included via a script, is required for this line to work
@@ -19,8 +16,20 @@ function component() {
 	return element;
 }
 
-document.body.appendChild(component());
+document.body.appendChild(helloMaya());
 
+// --------------------------------------------
+// ANOTHER THINGS
+// --------------------------------------------
+
+// Hello World
+console.log('Hello World...!');
+
+// testing babel
+const str = 'ES6';
+console.log(`Hello you, ${str}`);
+
+// Enable hot reloading
 if (module.hot) {
 	module.hot.accept();
 }
