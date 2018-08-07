@@ -61,6 +61,14 @@ When you run `npm run build`:
 
 -   Webpack places the resulting built project files into `/public` directory. (There you will see the files you'll expose to the world).
 
+### How do I add this on my app?
+
+-   Replicate the folder structure for src
+-   Copy package.json
+-   Copy Webpack configs
+-   Ignore stuff (.gitignore for Git)
+-   Run 'npm install'
+
 [minification]: https://en.wikipedia.org/wiki/Minification_(programming)
 [treeshaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
 [hmr]: https://webpack.js.org/concepts/hot-module-replacement/
