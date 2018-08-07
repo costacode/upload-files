@@ -2,7 +2,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
+// const WebpackMd5Hash = require('webpack-md5-hash');
 const devMode = process.env.NODE_ENV !== 'production';
 
 const outDir = 'public';
@@ -62,7 +62,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: 'Production',
 			inject: 'true',
-			hash: true,
+			// hash: true,
 			template: './src/index.html',
 			filename: 'index.html',
 		}),
@@ -70,6 +70,6 @@ module.exports = {
 			filename: '[name].bundle.[hash].css',
 			chunkFilename: '[id].css',
 		}),
-		new WebpackMd5Hash(),
+		// new WebpackMd5Hash(),
 	],
 };
