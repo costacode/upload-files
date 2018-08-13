@@ -7,16 +7,16 @@ import css from './sass/styles.scss';
 // --------------------------------------------
 // PRINT HELLO MAYA
 // --------------------------------------------
-function helloMaya() {
-	let element = document.createElement('div');
+// function helloMaya() {
+// 	let element = document.createElement('div');
 
-	// Lodash, currently included via a script, is required for this line to work
-	element.innerHTML = _.join(['The story', 'starts here'], ' ');
+// 	// Lodash, currently included via a script, is required for this line to work
+// 	element.innerHTML = _.join(['The story', 'starts here'], ' ');
 
-	return element;
-}
+// 	return element;
+// }
 
-document.body.appendChild(helloMaya());
+// document.body.appendChild(helloMaya());
 
 // --------------------------------------------
 // ANOTHER THINGS

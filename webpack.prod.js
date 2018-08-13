@@ -13,6 +13,13 @@ module.exports = merge(common, {
 			parallel: true,
 			sourceMap: true,
 		}),
-		new OptimizeCSSAssetsPlugin({}),
+		new OptimizeCSSAssetsPlugin({
+			cssProcessorOptions: {
+				map: {
+					inline: true, // set to false if you want CSS source maps
+					annotation: true,
+				},
+			},
+		}),
 	],
 });

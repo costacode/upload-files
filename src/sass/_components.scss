@@ -1,6 +1,21 @@
 // --------------------------------------------
 // CORE CONTENT/COMPONENT STYLING
 // --------------------------------------------
+.starterWrap {
+	background-color: papayawhip;
+	color: #333;
+	border: 20px solid #333;
+	max-width: 30%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px;
+	p {
+		text-align: left;
+		padding: 0;
+		margin: 1em;
+	}
+}
+
 // --------------------------------------------
 //
 // --------------------------------------------

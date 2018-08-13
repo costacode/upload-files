@@ -1,4 +1,4 @@
-# :smiley_cat: Maya - Webpack Starter
+# :cat2: Maya - Webpack Starter
 
 A webpack starter with separate development and production configurations
 
@@ -77,3 +77,7 @@ When you run `npm run build`:
 ### Current issues
 
 -   Hot reloading is not supported (yet) by MiniCssExtractPlugin v0.4.1, so the page has to be refrehed to see changes
+
+### CSS conventions
+
+-   Use camelCase for naming classes

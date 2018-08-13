@@ -1,11 +1,36 @@
 const path = require('path');
+// const WriteFilePlugin = require('write-file-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const WebpackMd5Hash = require('webpack-md5-hash');
-const devMode = process.env.NODE_ENV !== 'production';
+// const devMode = process.env.NODE_ENV !== 'production';
 
+// Paths
 const outDir = 'public';
+
+////////////////////////////////////////
+// CleanWebpackPlugin:
+// Optional block, use it if target folder is outside the webpack root
+// On Webpack, the Node variable '__dirname' has the fixed value of '/'
+///////////////////////////////////////
+
+// const targetPath = '../';
+// const targetFolder = 'public';
+
+// the clean options to use
+// let cleanOptions = {
+// 	root: path.join(__dirname, targetPath),
+// 	exclude: [
+// 		// folders and files to exclude from clean plugin
+// 		'dir1',
+// 		'dir2',
+// 		'dir3',
+// 		'file.js',
+// 	],
+// 	verbose: true,
+// 	dry: false,
+// 	allowExternal: true,
+// };
 
 module.exports = {
 	entry: {
@@ -13,7 +38,7 @@ module.exports = {
 	},
 	output: {
 		path: path.join(__dirname, outDir),
-		filename: '[name].bundle.[hash].js',
+		filename: '[name].bundle.js',
 	},
 	module: {
 		rules: [
@@ -34,7 +59,7 @@ module.exports = {
 					MiniCssExtractPlugin.loader, // Adds CSS to the DOM by injecting a <style> tag
 					{
 						loader: 'css-loader', //  interprets @import and url() like import/require()
-						options: { url: false, sourceMap: true },
+						options: { url: false, sourceMap: true, outFile: true },
 					},
 					{
 						loader: 'postcss-loader', // postcss loader so we can use autoprefixer
@@ -46,7 +71,11 @@ module.exports = {
 					},
 					{
 						loader: 'sass-loader', // compiles Sass to CSS
-						options: { sourceMap: true },
+						options: {
+							sourceComments: true,
+							sourceMap: true,
+							outFile: true,
+						},
 					},
 				],
 			},
@@ -59,6 +88,17 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin([outDir]),
+
+		// CleanWebpackPlugin:
+		// Optional, use it instead, if target folder is outside the webpack root
+		// new CleanWebpackPlugin([targetFolder], cleanOptions),
+
+		// If you want to write files to the disk while in dev mode
+		// new WriteFilePlugin({
+		// 	useHashIndex: false,
+		// 	test: /^(?!.*(hot)).*/,
+		// }),
+
 		new HtmlWebpackPlugin({
 			title: 'Production',
 			inject: 'true',
@@ -67,9 +107,8 @@ module.exports = {
 			filename: 'index.html',
 		}),
 		new MiniCssExtractPlugin({
-			filename: '[name].bundle.[hash].css',
+			filename: '[name].bundle.css',
 			chunkFilename: '[id].css',
 		}),
-		// new WebpackMd5Hash(),
 	],
 };

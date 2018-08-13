@@ -4,7 +4,8 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
 	mode: 'development',
-	devtool: 'cheap-module-eval-source-map',
+	// devtool: 'cheap-module-eval-source-map',
+	devtool: 'cheap-source-map', //best quality SourceMaps for development.
 	devServer: {
 		contentBase: common.output.path,
 		compress: true,
