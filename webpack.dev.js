@@ -1,19 +1,24 @@
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const webpack = require("webpack");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
-	mode: 'development',
-	// devtool: 'cheap-module-eval-source-map',
-	devtool: 'cheap-source-map', //best quality SourceMaps for development.
+	mode: "development",
+	devtool: false,
+	// devtool: "cheap-source-map", //best quality SourceMaps for development.
+	// devtool: "inline-source-map",
 	devServer: {
 		contentBase: common.output.path,
 		compress: true,
 		port: 3000,
-		hot: true,
+		// hot: true,
+		open: true,
 	},
 	plugins: [
 		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
+		// new webpack.HotModuleReplacementPlugin(),
+		new webpack.SourceMapDevToolPlugin({
+			filename: "[file].map",
+		}),
 	],
 });

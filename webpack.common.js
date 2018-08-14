@@ -1,12 +1,12 @@
-const path = require('path');
+const path = require("path");
 // const WriteFilePlugin = require('write-file-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const devMode = process.env.NODE_ENV !== 'production';
 
 // Paths
-const outDir = 'public';
+const outDir = "public";
 
 ////////////////////////////////////////
 // CleanWebpackPlugin:
@@ -32,13 +32,30 @@ const outDir = 'public';
 // 	allowExternal: true,
 // };
 
+// const webpackConfig = {};
+// if (process.env.NODE_ENV === "development") {
+// 	webpackConfig.devtool = "inline-source-map";
+// }
+
 module.exports = {
 	entry: {
-		app: './src/index.js',
+		app: "./src/index.js",
 	},
 	output: {
 		path: path.join(__dirname, outDir),
-		filename: '[name].bundle.js',
+		filename: "[name].bundle.js",
+	},
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				styles: {
+					name: "styles",
+					test: /\.css$/,
+					chunks: "all",
+					enforce: true,
+				},
+			},
+		},
 	},
 	module: {
 		rules: [
@@ -46,49 +63,54 @@ module.exports = {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: {
-					loader: 'babel-loader',
+					loader: "babel-loader",
 					query: {
-						presets: ['env'],
+						presets: ["env"],
 					},
 				},
 			},
 			{
 				test: /\.s?[ac]ss$/,
 				use: [
-					'style-loader', // fallback
+					// "style-loader", // fallback
 					MiniCssExtractPlugin.loader, // Adds CSS to the DOM by injecting a <style> tag
 					{
-						loader: 'css-loader', //  interprets @import and url() like import/require()
-						options: { url: false, sourceMap: true, outFile: true },
-					},
-					{
-						loader: 'postcss-loader', // postcss loader so we can use autoprefixer
+						loader: "css-loader", //  interprets @import and url() like import/require()
 						options: {
-							config: {
-								path: 'postcss.config.js',
-							},
-						},
-					},
-					{
-						loader: 'sass-loader', // compiles Sass to CSS
-						options: {
-							sourceComments: true,
+							url: false,
 							sourceMap: true,
 							outFile: true,
 						},
 					},
+					{
+						loader: "postcss-loader", // postcss loader so we can use autoprefixer
+						options: {
+							config: {
+								path: "postcss.config.js",
+							},
+						},
+					},
+					{
+						loader: "sass-loader", // compiles Sass to CSS
+						options: {
+							sourceComments: true,
+							sourceMap: true,
+							outFile: true,
+							includePaths: [path.join(__dirname, "src")],
+							data: '@import "vars"; @import "utils";',
+						},
+					},
 				],
 			},
-			{ test: /\.(jpg|png|gif|svg|tiff)$/, use: 'file-loader' },
+			{ test: /\.(jpg|png|gif|svg|tiff)$/, use: "file-loader" },
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/,
-				use: 'file-loader',
+				use: "file-loader",
 			},
 		],
 	},
 	plugins: [
 		new CleanWebpackPlugin([outDir]),
-
 		// CleanWebpackPlugin:
 		// Optional, use it instead, if target folder is outside the webpack root
 		// new CleanWebpackPlugin([targetFolder], cleanOptions),
@@ -100,15 +122,14 @@ module.exports = {
 		// }),
 
 		new HtmlWebpackPlugin({
-			title: 'Production',
-			inject: 'true',
+			inject: "true",
 			// hash: true,
-			template: './src/index.html',
-			filename: 'index.html',
+			template: "./src/index.html",
+			filename: "index.html",
 		}),
 		new MiniCssExtractPlugin({
-			filename: '[name].bundle.css',
-			chunkFilename: '[id].css',
+			filename: "[name].bundle.css",
+			chunkFilename: "[id].css",
 		}),
 	],
 };
