@@ -22,17 +22,17 @@ There are two ways in which you can build and run the web app:
 
 -   Build once for (ready for **_Production_**):
     -   `$ npm run build`
-    -   Open `public/index.html` through the local webserver
+    -   Open `assets/index.html` through the local webserver
 
 *   Hot reloading via webpack dev server:
     -   `$ npm start`
     -   Point your browser to http://localhost:3000/, page hot reloads automatically when there are changes
 
-### What's happening when you run `npm start`?
+### What's happening when you run `npm start` or `npm run build`?
 
-Webpack serves your app in memory when you run `npm start`. No physical files are written. When the app is built using `npm run build`, physical files are generated to `/assets` folder and the app is served from `/assets`.
+When the app is built using `npm start` or `npm run build`, physical files are generated to `/assets` folder and the app is served from `/assets`. We are using webpack WriteFilePlugin to enable this on dev.
 
-### How is Sass being processed?
+### Now, how is Sass being processed?
 
 We're handling it differently in DEV vs PROD.
 
@@ -45,18 +45,18 @@ When you run `npm start`:
 When you run `npm run build`:
 
 1.  The sass-loader compiles Sass into CSS
-2.  Webpack extracts and bundles CSS into maya.bundle.css.
+2.  Webpack EXCTRACTS and bundles CSS into maya.bundle.css.
 3.  Webpack minifies app.bundle.css. It also minifies all JS.
 
 ### How do I deploy this?
 
--   Webpack places the resulting built project files into `/assets` directory. (There you will see the files you'll expose to the world).
+-   Webpack places the resulting built project files into `/assets` directory.
 
 ### How do I add this on my app?
 
 -   Replicate the folder structure for src
--   Replicate package.json
--   Replicate Webpack config files
+-   Use Maya package.json and adapt names for your app
+-   Add Webpack config files and adapt paths and names for your app
 -   Replicate postCSS config file
 -   Ignore stuff (.gitignore for Git)
 -   Run 'npm install'
@@ -69,7 +69,8 @@ When you run `npm run build`:
 
 ### Current issues
 
--   Hot reloading is not supported (yet) by MiniCssExtractPlugin v0.4.1, so the page has to be refrehed to see changes
+-   Hot reloading is not supported (yet) by MiniCssExtractPlugin v0.4.1, so the page has to be refreshed to see changes.
+-   Devtools sourcemaps are not precise.
 
 ### CSS conventions
 
