@@ -8,15 +8,6 @@ Both configurations support:
 -   transpilation of JavaScript down to ES5,
 -   generation of an HTML index file.
 
-The production build supports
-
--   [minification][minification]
--   [tree shaking][treeshaking].
-
-The development build supports
-
--   [hot module reloading][hmr]
-
 ### Installation
 
 ```
@@ -39,7 +30,7 @@ There are two ways in which you can build and run the web app:
 
 ### What's happening when you run `npm start`?
 
-Webpack serves your app in memory when you run `npm start`. No physical files are written. When the app is built using `npm run build`, physical files are generated to `/public` folder and the app is served from `/public`.
+Webpack serves your app in memory when you run `npm start`. No physical files are written. When the app is built using `npm run build`, physical files are generated to `/assets` folder and the app is served from `/assets`.
 
 ### How is Sass being processed?
 
@@ -48,18 +39,18 @@ We're handling it differently in DEV vs PROD.
 When you run `npm start`:
 
 1.  The sass-loader compiles Sass into CSS
-2.  Webpack bundles the compiled CSS into app.bundle.js.
-3.  app.bundle.js contains code that loads styles into the &lt;head&gt; section of index.html via JavaScript. This is why there is no stylesheet reference in index.html.
+2.  Webpack bundles the compiled CSS into maya.bundle.js.
+3.  maya.bundle.js contains code that loads styles into the &lt;head&gt; section of index.html via JavaScript. This is why there is no stylesheet reference in index.html.
 
 When you run `npm run build`:
 
 1.  The sass-loader compiles Sass into CSS
-2.  Webpack extracts and bundles CSS into app.bundle.css.
+2.  Webpack extracts and bundles CSS into maya.bundle.css.
 3.  Webpack minifies app.bundle.css. It also minifies all JS.
 
 ### How do I deploy this?
 
--   Webpack places the resulting built project files into `/public` directory. (There you will see the files you'll expose to the world).
+-   Webpack places the resulting built project files into `/assets` directory. (There you will see the files you'll expose to the world).
 
 ### How do I add this on my app?
 
@@ -70,9 +61,11 @@ When you run `npm run build`:
 -   Ignore stuff (.gitignore for Git)
 -   Run 'npm install'
 
-[minification]: https://en.wikipedia.org/wiki/Minification_(programming)
-[treeshaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
-[hmr]: https://webpack.js.org/concepts/hot-module-replacement/
+### Key concepts
+
+minification: https://en.wikipedia.org/wiki/Minification_(programming)
+treeshaking: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
+hmr: https://webpack.js.org/concepts/hot-module-replacement/
 
 ### Current issues
 
