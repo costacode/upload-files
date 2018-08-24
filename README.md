@@ -63,9 +63,9 @@ When you run `npm run build`:
 
 ### Key concepts
 
-minification: https://en.wikipedia.org/wiki/Minification_(programming)
-treeshaking: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
-hmr: https://webpack.js.org/concepts/hot-module-replacement/
+-   **minification:** https://en.wikipedia.org/wiki/Minification_(programming)
+-   **treeshaking:** https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
+-   **hmr:** https://webpack.js.org/concepts/hot-module-replacement/
 
 ### Current issues
 
