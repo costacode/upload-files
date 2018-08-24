@@ -1,36 +1,28 @@
-const path = require("path");
-// const WriteFilePlugin = require('write-file-webpack-plugin');
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const devMode = process.env.NODE_ENV !== 'production';
+const path = require('path');
+const WriteFilePlugin = require('write-file-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// Paths
-const outDir = "public";
+// Folder for final production files
+const targetFolder = 'assets';
 
-////////////////////////////////////////
-// CleanWebpackPlugin:
-// Optional block, use it if target folder is outside the webpack root
-// On Webpack, the Node variable '__dirname' has the fixed value of '/'
-///////////////////////////////////////
+// path for target folder outside the webpack root
+// not outside? comment out this line
+const targetPath = '../';
 
-// const targetPath = '../';
-// const targetFolder = 'public';
-
-// the clean options to use
-// let cleanOptions = {
-// 	root: path.join(__dirname, targetPath),
-// 	exclude: [
-// 		// folders and files to exclude from clean plugin
-// 		'dir1',
-// 		'dir2',
-// 		'dir3',
-// 		'file.js',
-// 	],
-// 	verbose: true,
-// 	dry: false,
-// 	allowExternal: true,
-// };
+// options for cleaning folder outside the webpack root
+// not outside? comment out this block
+let cleanOptions = {
+	root: path.join(__dirname, targetPath),
+	exclude: [
+		// folders and files to exclude from clean plugin
+		'images',
+	],
+	verbose: true,
+	dry: false,
+	allowExternal: true,
+};
 
 // const webpackConfig = {};
 // if (process.env.NODE_ENV === "development") {
@@ -38,44 +30,38 @@ const outDir = "public";
 // }
 
 module.exports = {
+	// entry point of your app
 	entry: {
-		app: "./src/index.js",
+		maya: './src/index.js',
 	},
+	// output point
 	output: {
-		path: path.join(__dirname, outDir),
-		filename: "[name].bundle.js",
+		path: path.join(__dirname, targetPath, targetFolder),
+		filename: '[name].bundle.js',
 	},
-	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				styles: {
-					name: "styles",
-					test: /\.css$/,
-					chunks: "all",
-					enforce: true,
-				},
-			},
-		},
-	},
+	// loaders
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: {
-					loader: "babel-loader",
+					// transforming ES6 down to ES5
+					loader: 'babel-loader',
 					query: {
-						presets: ["env"],
+						presets: ['env'],
 					},
 				},
 			},
 			{
 				test: /\.s?[ac]ss$/,
 				use: [
-					// "style-loader", // fallback
-					MiniCssExtractPlugin.loader, // Adds CSS to the DOM by injecting a <style> tag
+					// Extracts CSS into a separate file
+					MiniCssExtractPlugin.loader,
 					{
-						loader: "css-loader", //  interprets @import and url() like import/require()
+						// CSS loader takes a CSS file and returns it with
+						// @import and url() via import/require()
+						loader: 'css-loader',
 						options: {
 							url: false,
 							sourceMap: true,
@@ -83,53 +69,82 @@ module.exports = {
 						},
 					},
 					{
-						loader: "postcss-loader", // postcss loader so we can use autoprefixer
+						// set css autoprefixer
+						loader: 'postcss-loader', // autoprefixer!
 						options: {
 							config: {
-								path: "postcss.config.js",
+								path: 'postcss.config.js',
 							},
 						},
 					},
 					{
-						loader: "sass-loader", // compiles Sass to CSS
+						// compiles Sass to CSS
+						loader: 'sass-loader',
 						options: {
-							sourceComments: true,
 							sourceMap: true,
+							sourceComments: true,
 							outFile: true,
-							includePaths: [path.join(__dirname, "src")],
-							data: '@import "vars"; @import "utils";',
+							includePaths: [path.join(__dirname, 'src')],
+
+							// important as webpack doesn't recognize
+							// @imports of sass variables or mixins
+							data: '@import "variables"; @import "utils";',
 						},
 					},
 				],
 			},
-			{ test: /\.(jpg|png|gif|svg|tiff)$/, use: "file-loader" },
+			{ test: /\.(jpg|png|gif|svg|tiff)$/, use: 'file-loader' },
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/,
-				use: "file-loader",
+				use: 'file-loader',
 			},
 		],
 	},
 	plugins: [
-		new CleanWebpackPlugin([outDir]),
-		// CleanWebpackPlugin:
-		// Optional, use it instead, if target folder is outside the webpack root
-		// new CleanWebpackPlugin([targetFolder], cleanOptions),
+		// target folder is outside the webpack root:
+		new CleanWebpackPlugin([targetFolder], cleanOptions),
 
-		// If you want to write files to the disk while in dev mode
-		// new WriteFilePlugin({
-		// 	useHashIndex: false,
-		// 	test: /^(?!.*(hot)).*/,
-		// }),
+		// target folder is INSIDE the webpack root
+		// new CleanWebpackPlugin([targetFolder]),
 
-		new HtmlWebpackPlugin({
-			inject: "true",
-			// hash: true,
-			template: "./src/index.html",
-			filename: "index.html",
+		// want to write files to the disk while in dev mode?
+		new WriteFilePlugin({
+			useHashIndex: false,
+			test: /^(?!.*(hot)).*/,
 		}),
+		// plugin: https://github.com/jantimon/html-webpack-plugin
+		new HtmlWebpackPlugin({
+			inject: 'true',
+			// hash: true,
+			template: './src/index.html',
+			filename: 'index.html',
+		}),
+		// plugin to extract css file
 		new MiniCssExtractPlugin({
-			filename: "[name].bundle.css",
-			chunkFilename: "[id].css",
+			filename: '[name].bundle.css',
+			chunkFilename: '[id].css',
 		}),
 	],
+
+	// chunks optimization - since webpack 4, what is it...?
+	// read: https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
+	// optimization: {
+	// 	splitChunks: {
+	// 		cacheGroups: {
+	// 			vendor: {
+	// 				name: 'vendors',
+	// 				test: /[\\/]node_modules[\\/]/,
+	// 				chunks: 'all',
+	// 				enforce: true,
+	// 			},
+	// 			// Merge all the CSS into one file
+	// 			styles: {
+	// 				name: 'styles',
+	// 				test: /\.css$/,
+	// 				chunks: 'all',
+	// 				enforce: true,
+	// 			},
+	// 		},
+	// 	},
+	// },
 };

@@ -1,9 +1,9 @@
 # :cat2: Maya - Webpack Starter
 
-A webpack starter with separate development and production configurations
+This webpack starter supports:
 
-Both configurations support:
-
+-   'assets' folder outside the webpack root
+-   write files to target folder even on dev mode
 -   loading of CSS, image and font assets,
 -   transpilation of JavaScript down to ES5,
 -   generation of an HTML index file.
