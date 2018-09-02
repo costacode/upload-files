@@ -67,7 +67,6 @@ dt,
 th {
 	font-family: $headingFont;
 	font-weight: $headingWeight;
-	color: $brand;
 	margin-bottom: 0;
 }
 
@@ -116,7 +115,7 @@ ol {
 //bullets
 article ul li:before,
 dt:before {
-	content: '';
+	content: "";
 	width: 6px;
 	height: 6px;
 	background-color: $brand;

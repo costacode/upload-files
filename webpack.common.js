@@ -1,6 +1,7 @@
 const path = require("path");
-// const WriteFilePlugin = require('write-file-webpack-plugin');
+const WriteFilePlugin = require("write-file-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+// generate an index.html:
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const devMode = process.env.NODE_ENV !== 'production';
@@ -116,14 +117,16 @@ module.exports = {
 		// new CleanWebpackPlugin([targetFolder], cleanOptions),
 
 		// If you want to write files to the disk while in dev mode
-		// new WriteFilePlugin({
-		// 	useHashIndex: false,
-		// 	test: /^(?!.*(hot)).*/,
-		// }),
+		new WriteFilePlugin({
+			useHashIndex: false,
+			test: /^(?!.*(hot)).*/,
+		}),
 
+		// Generate an index.html file:
 		new HtmlWebpackPlugin({
 			inject: "true",
 			// hash: true,
+			// and use the src one as a template:
 			template: "./src/index.html",
 			filename: "index.html",
 		}),
