@@ -1,6 +1,7 @@
-import _ from 'lodash';
-import another from './js/another.js';
-import css from './sass/styles.scss';
+import _ from "lodash";
+import another from "./js/another.js";
+import css from "./sass/styles.scss";
+import "./fonts/sansation_regular.woff";
 
 // main entry point: write your JavaScript here
 
@@ -23,10 +24,10 @@ import css from './sass/styles.scss';
 // --------------------------------------------
 
 // Hello World --
-console.log('Hello World...!');
+console.log("Hello World...!");
 
 // testing babel
-const str = 'ES6';
+const str = "ES6";
 console.log(`Hello you, ${str}`);
 
 // Enable hot reloading

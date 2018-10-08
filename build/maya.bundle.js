@@ -26451,6 +26451,17 @@ module.exports.setLogLevel = function(level) {
 
 /***/ }),
 
+/***/ "./src/fonts/sansation_regular.woff":
+/*!******************************************!*\
+  !*** ./src/fonts/sansation_regular.woff ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/sansation_regular.woff";
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -26472,6 +26483,8 @@ var _another2 = _interopRequireDefault(_another);
 var _styles = __webpack_require__(/*! ./sass/styles.scss */ "./src/sass/styles.scss");
 
 var _styles2 = _interopRequireDefault(_styles);
+
+__webpack_require__(/*! ./fonts/sansation_regular.woff */ "./src/fonts/sansation_regular.woff");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26496,11 +26509,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // --------------------------------------------
 
 // Hello World --
-console.log('Hello World...!');
+console.log("Hello World...!");
 
 // testing babel
-var str = 'ES6';
-console.log('Hello you, ' + str);
+var str = "ES6";
+console.log("Hello you, " + str);
 
 // Enable hot reloading
 if (false) {}
@@ -26547,4 +26560,4 @@ module.exports = __webpack_require__(/*! ./src/index.js */"./src/index.js");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=app.bundle.js.map
+//# sourceMappingURL=maya.bundle.js.map

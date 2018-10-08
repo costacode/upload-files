@@ -1,38 +1,34 @@
-<<<<<<< HEAD
 const path = require("path");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+
 // generate an index.html:
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const devMode = process.env.NODE_ENV !== 'production';
-=======
-const path = require('path');
-const WriteFilePlugin = require('write-file-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
->>>>>>> 8b1be350584dfa2ab13dc8878ad9ad0890a72680
 
 // Folder for final production files
-const targetFolder = 'assets';
-
+const targetFolder = "build";
 // path for target folder outside the webpack root
-// not outside? comment out this line
-const targetPath = '../';
+const targetPath = "../";
+
+// style files regexes
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 // options for cleaning folder outside the webpack root
 // not outside? comment out this block
-let cleanOptions = {
-	root: path.join(__dirname, targetPath),
-	exclude: [
-		// folders and files to exclude from clean plugin
-		'images',
-	],
-	verbose: true,
-	dry: false,
-	allowExternal: true,
-};
+// let cleanOptions = {
+// 	root: path.join(__dirname, targetPath),
+// 	exclude: [
+// 		// folders and files to exclude from clean plugin
+// 		"images",
+// 	],
+// 	verbose: true,
+// 	dry: false,
+// 	allowExternal: true,
+// };
 
 // const webpackConfig = {};
 // if (process.env.NODE_ENV === "development") {
@@ -42,12 +38,14 @@ let cleanOptions = {
 module.exports = {
 	// entry point of your app
 	entry: {
-		maya: './src/index.js',
+		maya: "./src/index.js",
 	},
 	// output point
 	output: {
-		path: path.join(__dirname, targetPath, targetFolder),
-		filename: '[name].bundle.js',
+		// outside?
+		// path: path.join(__dirname, targetPath, targetFolder),
+		path: path.join(__dirname, targetFolder),
+		filename: "[name].bundle.js",
 	},
 	// loaders
 	module: {
@@ -57,9 +55,9 @@ module.exports = {
 				exclude: /node_modules/,
 				use: {
 					// transforming ES6 down to ES5
-					loader: 'babel-loader',
+					loader: "babel-loader",
 					query: {
-						presets: ['env'],
+						presets: ["env"],
 					},
 				},
 			},
@@ -71,7 +69,7 @@ module.exports = {
 					{
 						// CSS loader takes a CSS file and returns it with
 						// @import and url() via import/require()
-						loader: 'css-loader',
+						loader: "css-loader",
 						options: {
 							url: false,
 							sourceMap: true,
@@ -80,21 +78,21 @@ module.exports = {
 					},
 					{
 						// set css autoprefixer
-						loader: 'postcss-loader', // autoprefixer!
+						loader: "postcss-loader", // autoprefixer!
 						options: {
 							config: {
-								path: 'postcss.config.js',
+								path: "postcss.config.js",
 							},
 						},
 					},
 					{
 						// compiles Sass to CSS
-						loader: 'sass-loader',
+						loader: "sass-loader",
 						options: {
 							sourceMap: true,
 							sourceComments: true,
 							outFile: true,
-							includePaths: [path.join(__dirname, 'src')],
+							includePaths: [path.join(__dirname, "src")],
 
 							// important as webpack doesn't recognize
 							// @imports of sass variables or mixins
@@ -103,18 +101,27 @@ module.exports = {
 					},
 				],
 			},
-			{ test: /\.(jpg|png|gif|svg|tiff)$/, use: 'file-loader' },
+			{ test: /\.(jpg|png|gif|svg|tiff)$/, use: "file-loader" },
 			{
-				test: /\.(woff|woff2|eot|ttf|otf)$/,
-				use: 'file-loader',
+				// test: /\.(woff|woff2|eot|ttf|otf)$/,
+				test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+				use: [
+					{
+						loader: "file-loader",
+						options: {
+							name: "[name].[ext]",
+							outputPath: "./fonts",
+						},
+					},
+				],
 			},
 		],
 	},
 	plugins: [
 		// target folder is outside the webpack root:
-		new CleanWebpackPlugin([targetFolder], cleanOptions),
+		// new CleanWebpackPlugin([targetFolder], cleanOptions),
+		new CleanWebpackPlugin([targetFolder]),
 
-<<<<<<< HEAD
 		// If you want to write files to the disk while in dev mode
 		new WriteFilePlugin({
 			useHashIndex: false,
@@ -122,33 +129,17 @@ module.exports = {
 		}),
 
 		// Generate an index.html file:
-=======
-		// target folder is INSIDE the webpack root
-		// new CleanWebpackPlugin([targetFolder]),
-
-		// want to write files to the disk while in dev mode?
-		new WriteFilePlugin({
-			useHashIndex: false,
-			test: /^(?!.*(hot)).*/,
-		}),
-		// plugin: https://github.com/jantimon/html-webpack-plugin
->>>>>>> 8b1be350584dfa2ab13dc8878ad9ad0890a72680
 		new HtmlWebpackPlugin({
-			inject: 'true',
+			inject: "true",
 			// hash: true,
-<<<<<<< HEAD
 			// and use the src one as a template:
 			template: "./src/index.html",
 			filename: "index.html",
-=======
-			template: './src/index.html',
-			filename: 'index.html',
->>>>>>> 8b1be350584dfa2ab13dc8878ad9ad0890a72680
 		}),
 		// plugin to extract css file
 		new MiniCssExtractPlugin({
-			filename: '[name].bundle.css',
-			chunkFilename: '[id].css',
+			filename: "[name].bundle.css",
+			chunkFilename: "[id].css",
 		}),
 	],
 
