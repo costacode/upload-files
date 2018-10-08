@@ -56,7 +56,7 @@
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 	// Promise = chunk loading, 0 = chunk loaded
 /******/ 	var installedChunks = {
-/******/ 		"maya": 0
+/******/ 		"specialCss": 0
 /******/ 	};
 /******/
 /******/ 	var deferredModules = [];
@@ -147,7 +147,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push([0,"vendors"]);
+/******/ 	deferredModules.push([4,"vendors"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
@@ -188,80 +188,10 @@ webpackContext.id = "./node_modules/webpack/hot sync ^\\.\\/log$";
 
 /***/ }),
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _lodash = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _another = __webpack_require__(/*! ./js/another.js */ "./src/js/another.js");
-
-var _another2 = _interopRequireDefault(_another);
-
-var _styles = __webpack_require__(/*! ./sass/styles.scss */ "./src/sass/styles.scss");
-
-var _styles2 = _interopRequireDefault(_styles);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// main entry point: write your JavaScript here
-
-// --------------------------------------------
-// PRINT HELLO MAYA
-// --------------------------------------------
-// function helloMaya() {
-// 	let element = document.createElement('div');
-
-// 	// Lodash, currently included via a script, is required for this line to work
-// 	element.innerHTML = _.join(['The story', 'starts here'], ' ');
-
-// 	return element;
-// }
-
-// document.body.appendChild(helloMaya());
-
-// --------------------------------------------
-// ANOTHER THINGS
-// --------------------------------------------
-
-// Hello World --
-console.log("Hello World...!");
-
-// testing babel
-var str = "ES6";
-console.log("Hello you, " + str);
-
-// Enable hot reloading
-if (false) {}
-
-/***/ }),
-
-/***/ "./src/js/another.js":
-/*!***************************!*\
-  !*** ./src/js/another.js ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-console.log('another script');
-
-/***/ }),
-
-/***/ "./src/sass/styles.scss":
-/*!******************************!*\
-  !*** ./src/sass/styles.scss ***!
-  \******************************/
+/***/ "./src/sass/special.scss":
+/*!*******************************!*\
+  !*** ./src/sass/special.scss ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -269,19 +199,19 @@ console.log('another script');
 
 /***/ }),
 
-/***/ 0:
-/*!**********************************************************************************************************!*\
-  !*** multi (webpack)-dev-server/client?http://localhost:3000 (webpack)/hot/dev-server.js ./src/index.js ***!
-  \**********************************************************************************************************/
+/***/ 4:
+/*!*******************************************************************************************************************!*\
+  !*** multi (webpack)-dev-server/client?http://localhost:3000 (webpack)/hot/dev-server.js ./src/sass/special.scss ***!
+  \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/costa/Sites/starters/maya/node_modules/webpack-dev-server/client/index.js?http://localhost:3000 */"./node_modules/webpack-dev-server/client/index.js?http://localhost:3000");
 __webpack_require__(/*! /Users/costa/Sites/starters/maya/node_modules/webpack/hot/dev-server.js */"./node_modules/webpack/hot/dev-server.js");
-module.exports = __webpack_require__(/*! ./src/index.js */"./src/index.js");
+module.exports = __webpack_require__(/*! ./src/sass/special.scss */"./src/sass/special.scss");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=maya.bundle.js.map
+//# sourceMappingURL=specialCss.bundle.js.map

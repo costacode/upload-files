@@ -1,7 +1,6 @@
 import _ from "lodash";
 import another from "./js/another.js";
 import css from "./sass/styles.scss";
-import "./fonts/sansation_regular.woff";
 
 // main entry point: write your JavaScript here
 

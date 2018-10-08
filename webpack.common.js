@@ -11,12 +11,6 @@ const targetFolder = "build";
 // path for target folder outside the webpack root
 const targetPath = "../";
 
-// style files regexes
-const cssRegex = /\.css$/;
-const cssModuleRegex = /\.module\.css$/;
-const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
-
 // options for cleaning folder outside the webpack root
 // not outside? comment out this block
 // let cleanOptions = {
@@ -39,6 +33,9 @@ module.exports = {
 	// entry point of your app
 	entry: {
 		maya: "./src/index.js",
+		frida: "./src/js/frida/frida.js",
+		special: "./src/js/special/special.js",
+		specialCss: "./src/sass/special.scss",
 	},
 	// output point
 	output: {
@@ -47,6 +44,33 @@ module.exports = {
 		path: path.join(__dirname, targetFolder),
 		filename: "[name].bundle.js",
 	},
+	// optimization: {
+	// 	splitChunks: {
+	// 		chunks: "all",
+	// 	},
+	// },
+	// chunks optimization - since webpack 4, what is it...?
+	// read: https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					name: "vendors",
+					test: /[\\/]node_modules[\\/]/,
+					chunks: "all",
+					enforce: true,
+				},
+				// Merge all the CSS into one file
+				styles: {
+					name: "styles",
+					test: /\.css$/,
+					chunks: "all",
+					enforce: true,
+				},
+			},
+		},
+	},
+
 	// loaders
 	module: {
 		rules: [
