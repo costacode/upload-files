@@ -193,10 +193,7 @@ webpackContext.id = "./node_modules/webpack/hot sync ^\\.\\/log$";
   !*** ./src/js/frida/frida.js ***!
   \*******************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/***/ (function(module, exports) {
 
 console.log("Frida page");
 

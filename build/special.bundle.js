@@ -192,17 +192,13 @@ webpackContext.id = "./node_modules/webpack/hot sync ^\\.\\/log$";
 /*!***********************************!*\
   !*** ./src/js/special/special.js ***!
   \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-var _styles = __webpack_require__(/*! ../../sass/styles.scss */ "./src/sass/styles.scss");
-
-var _styles2 = _interopRequireDefault(_styles);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _sass_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../sass/styles.scss */ "./src/sass/styles.scss");
+/* harmony import */ var _sass_styles_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_styles_scss__WEBPACK_IMPORTED_MODULE_0__);
 
 console.log("this is special page");
 

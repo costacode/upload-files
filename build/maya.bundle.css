@@ -285,5 +285,50 @@ cite {
   font-size: 1.4rem;
   line-height: 20px; }
 
+/* line 4, src/sass/_components.scss */
+.starterWrap {
+  background-color: #cbdaaa;
+  color: #333;
+  border: 20px solid #333;
+  max-width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px; }
+  /* line 12, src/sass/_components.scss */
+  .starterWrap h1 {
+    font-family: Titillium, Georgia, Arial, sans-serif; }
+  /* line 15, src/sass/_components.scss */
+  .starterWrap p {
+    text-align: left;
+    padding: 0;
+    margin: 1em; }
+
+/* line 29, src/sass/_components.scss */
+.button,
+a.button {
+  position: relative;
+  background-color: #8bb9ae;
+  border-radius: 5px;
+  border: 1px solid #c7d7a3;
+  display: inline-block;
+  color: #333;
+  text-align: center;
+  padding: 4px 5%;
+  min-width: 132px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.33);
+  font-size: 1.8rem;
+  font-family: sansation, Georgia, Arial, sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+  line-height: 1.4em; }
+  /* line 46, src/sass/_components.scss */
+  .button:hover,
+  a.button:hover {
+    background-color: #e1e9ce; }
+  /* line 49, src/sass/_components.scss */
+  .button:active,
+  a.button:active {
+    top: 1px; }
+
 
 /*# sourceMappingURL=maya.bundle.css.map*/

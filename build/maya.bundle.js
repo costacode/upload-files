@@ -192,54 +192,40 @@ webpackContext.id = "./node_modules/webpack/hot sync ^\\.\\/log$";
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_another_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/another.js */ "./src/js/another.js");
+/* harmony import */ var _js_another_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_js_another_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _sass_styles_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sass/styles.scss */ "./src/sass/styles.scss");
+/* harmony import */ var _sass_styles_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sass_styles_scss__WEBPACK_IMPORTED_MODULE_2__);
 
 
-var _lodash = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
-var _another = __webpack_require__(/*! ./js/another.js */ "./src/js/another.js");
-
-var _another2 = _interopRequireDefault(_another);
-
-var _styles = __webpack_require__(/*! ./sass/styles.scss */ "./src/sass/styles.scss");
-
-var _styles2 = _interopRequireDefault(_styles);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// main entry point: write your JavaScript here
-
+ // main entry point: write your JavaScript here
 // --------------------------------------------
 // PRINT HELLO MAYA
 // --------------------------------------------
 // function helloMaya() {
 // 	let element = document.createElement('div');
-
 // 	// Lodash, currently included via a script, is required for this line to work
 // 	element.innerHTML = _.join(['The story', 'starts here'], ' ');
-
 // 	return element;
 // }
-
 // document.body.appendChild(helloMaya());
-
 // --------------------------------------------
 // ANOTHER THINGS
 // --------------------------------------------
-
 // Hello World --
-console.log("Hello World...!");
 
-// testing babel
+console.log("Hello World...!"); // testing babel
+
 var str = "ES6";
-console.log("Hello you, " + str);
+console.log("Hello you, ".concat(str)); // Enable hot reloading
 
-// Enable hot reloading
 if (false) {}
 
 /***/ }),
@@ -249,10 +235,7 @@ if (false) {}
   !*** ./src/js/another.js ***!
   \***************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/***/ (function(module, exports) {
 
 console.log('another script');
 

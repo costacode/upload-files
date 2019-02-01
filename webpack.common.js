@@ -76,12 +76,12 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
+				include: [path.resolve(__dirname, "src")],
 				exclude: /node_modules/,
 				use: {
-					// transforming ES6 down to ES5
 					loader: "babel-loader",
-					query: {
-						presets: ["env"],
+					options: {
+						presets: ["@babel/preset-env"],
 					},
 				},
 			},
