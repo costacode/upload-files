@@ -1,6 +1,6 @@
 {
 	"name": "maya-starter",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Maya, a webpack boilerplate",
 	"private": true,
 	"main": "index.js",
