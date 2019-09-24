@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "de295faba290c7a05d47";
+/******/ 	var hotCurrentHash = "c7a569f565046f103fc1";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -10386,8 +10386,8 @@ module.exports.setLogLevel = function(level) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/costa/Sites/starters/maya/node_modules/webpack-dev-server/client/index.js?http://localhost:3000 */"./node_modules/webpack-dev-server/client/index.js?http://localhost:3000");
-__webpack_require__(/*! /Users/costa/Sites/starters/maya/node_modules/webpack/hot/dev-server.js */"./node_modules/webpack/hot/dev-server.js");
+__webpack_require__(/*! /Users/costa/Sites/lab/form-upload/node_modules/webpack-dev-server/client/index.js?http://localhost:3000 */"./node_modules/webpack-dev-server/client/index.js?http://localhost:3000");
+__webpack_require__(/*! /Users/costa/Sites/lab/form-upload/node_modules/webpack/hot/dev-server.js */"./node_modules/webpack/hot/dev-server.js");
 module.exports = __webpack_require__(/*! ./src/styles/coreStyles.scss */"./src/styles/coreStyles.scss");
 
 

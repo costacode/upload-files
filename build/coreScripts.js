@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "de295faba290c7a05d47";
+/******/ 	var hotCurrentHash = "c7a569f565046f103fc1";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -10368,36 +10368,97 @@ module.exports.setLogLevel = function(level) {
 
 /***/ }),
 
-/***/ "./src/js/components/another.js":
-/*!**************************************!*\
-  !*** ./src/js/components/another.js ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./src/js/components/fileUpload.js":
+/*!*****************************************!*\
+  !*** ./src/js/components/fileUpload.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-console.log('another script');
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
-/***/ }),
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
 
-/***/ "./src/js/components/frida.js":
-/*!************************************!*\
-  !*** ./src/js/components/frida.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
-console.log("Frida page");
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-/***/ }),
+var fileUpload = function fileUpload() {
+  var link = document.querySelector(".js-upload-link");
+  var input = document.querySelector("#files");
+  var output = document.querySelector("#selectedFiles");
+  var list = document.getElementById("fileList"); // on link click trigger file input click
 
-/***/ "./src/js/components/special.js":
-/*!**************************************!*\
-  !*** ./src/js/components/special.js ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+  link.addEventListener("click", triggerInput, false);
 
-console.log("this is special page");
+  function triggerInput(e) {
+    input.click();
+    e.preventDefault(); // prevent navigation to "#"
+  } // init on DOM ready
+
+
+  document.addEventListener("DOMContentLoaded", init, false);
+
+  function init() {
+    // input on change will generate list
+    input.addEventListener("change", handleFileSelect, false);
+  } // generate list
+
+
+  function handleFileSelect(e) {
+    if (!e.target.files || !window.FileReader) return; // empty container and append list
+    // output.innerHTML = "";
+
+    var list = document.createElement("ul");
+    output.appendChild(list); // get array of files
+
+    var files = e.target.files;
+    console.log(files);
+
+    var filesArr = _toConsumableArray(files); // and on each file
+
+
+    filesArr.forEach(function (file, i, readerEvt) {
+      var file = files[i]; // check if file is an image
+
+      if (!file.type.match("image.*")) {
+        return;
+      } // create li container
+
+
+      var li = document.createElement("li");
+      list.appendChild(li); // create img-container and append > span > close > img
+
+      var imgContainer = document.createElement("div");
+      imgContainer.classList.add("image-container");
+      var span = document.createElement("span");
+      span.classList.add("close");
+      span.innerHTML = "&times;";
+      var img = document.createElement("img");
+      img.classList.add("obj");
+      img.file = file;
+      img.height = 60;
+      img.id = i;
+      li.appendChild(imgContainer);
+      imgContainer.appendChild(span);
+      imgContainer.appendChild(img); // get img source
+      // https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications#Example_Showing_thumbnails_of_user-selected_images
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        img.src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+};
+
+fileUpload();
+/* harmony default export */ __webpack_exports__["default"] = (fileUpload);
 
 /***/ }),
 
@@ -10410,14 +10471,7 @@ console.log("this is special page");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_frida__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/frida */ "./src/js/components/frida.js");
-/* harmony import */ var _components_frida__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_frida__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_another__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/another */ "./src/js/components/another.js");
-/* harmony import */ var _components_another__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_another__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_special__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/special */ "./src/js/components/special.js");
-/* harmony import */ var _components_special__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_special__WEBPACK_IMPORTED_MODULE_2__);
-
-
+/* harmony import */ var _components_fileUpload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/fileUpload */ "./src/js/components/fileUpload.js");
 
 
 /***/ }),
@@ -10429,8 +10483,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/costa/Sites/starters/maya/node_modules/webpack-dev-server/client/index.js?http://localhost:3000 */"./node_modules/webpack-dev-server/client/index.js?http://localhost:3000");
-__webpack_require__(/*! /Users/costa/Sites/starters/maya/node_modules/webpack/hot/dev-server.js */"./node_modules/webpack/hot/dev-server.js");
+__webpack_require__(/*! /Users/costa/Sites/lab/form-upload/node_modules/webpack-dev-server/client/index.js?http://localhost:3000 */"./node_modules/webpack-dev-server/client/index.js?http://localhost:3000");
+__webpack_require__(/*! /Users/costa/Sites/lab/form-upload/node_modules/webpack/hot/dev-server.js */"./node_modules/webpack/hot/dev-server.js");
 module.exports = __webpack_require__(/*! ./src/js/coreScripts.js */"./src/js/coreScripts.js");
 
 

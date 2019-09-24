@@ -270,18 +270,19 @@ img {
 .starterWrap {
   background-color: #cbdaaa;
   color: #333;
-  border: 20px solid #333;
-  max-width: 30%;
+  border: 2px solid #333;
+  max-width: 90%;
   margin: 0 auto;
   text-align: center;
-  padding: 20px; }
-  /* line 12, src/styles/_components.scss */
+  padding: 20px;
+  margin-bottom: 1rem; }
+  /* line 13, src/styles/_components.scss */
   .starterWrap p {
     text-align: left;
     padding: 0;
     margin: 1em; }
 
-/* line 26, src/styles/_components.scss */
+/* line 27, src/styles/_components.scss */
 .button,
 a.button {
   position: relative;
@@ -298,11 +299,11 @@ a.button {
   font-weight: normal;
   cursor: pointer;
   line-height: 1.4em; }
-  /* line 42, src/styles/_components.scss */
+  /* line 43, src/styles/_components.scss */
   .button:hover,
   a.button:hover {
     background-color: #e1e9ce; }
-  /* line 45, src/styles/_components.scss */
+  /* line 46, src/styles/_components.scss */
   .button:active,
   a.button:active {
     top: 1px; }

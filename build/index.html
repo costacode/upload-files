@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Upload images</title>
+	<link href="coreStyles.css" rel="stylesheet"></head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Maya - Webpack Starter</title>
-<link href="coreStyles.css" rel="stylesheet"></head>
-
-<body>
-    <div class="starterWrap">
-        <h1>Awesome - you are ready to code</h1>
-        <p>'npm start' on dev</p>
-        <p>'npm run build' for production</p>
-    </div>
-<script type="text/javascript" src="coreScripts.js"></script><script type="text/javascript" src="coreStyles.js"></script></body>
-
+	<body>
+		<div class="starterWrap">
+			<h1>Let's upload images</h1>
+			<form
+				id="form-upload"
+				method="post"
+				enctype="multipart/form-data"
+			>
+				<input
+					accept="image/jpeg, image/png, image/gif,"
+					id="files"
+					multiple="multiple"
+					name="files"
+					type="file"
+					style="display:none"
+				/>
+				<input type="submit" style="display:none" />
+			</form>
+		</div>
+		<div class="starterWrap">
+			<section>
+				<a href="#" class="js-upload-link">Upload images</a>
+				<output id="selectedFiles" for="form-upload"></output>
+			</section>
+		</div>
+	<script type="text/javascript" src="coreScripts.js"></script><script type="text/javascript" src="coreStyles.js"></script></body>
 </html>
