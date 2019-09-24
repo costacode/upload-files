@@ -1,10 +1,9 @@
 const path = require("path");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-
-// generate an index.html:
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 // Folder for final production files
 const targetFolder = "build";
@@ -32,17 +31,17 @@ const targetPath = "../";
 module.exports = {
 	// entry point of your app
 	entry: {
-		maya: "./src/index.js",
-		frida: "./src/js/frida/frida.js",
-		special: "./src/js/special/special.js",
-		specialCss: "./src/sass/special.scss",
+		// js
+		coreScripts: "./src/js/coreScripts.js",
+		// css
+		coreStyles: "./src/styles/coreStyles.scss",
 	},
 	// output point
 	output: {
 		// outside?
 		// path: path.join(__dirname, targetPath, targetFolder),
 		path: path.join(__dirname, targetFolder),
-		filename: "[name].bundle.js",
+		filename: "[name].js",
 	},
 	// optimization: {
 	// 	splitChunks: {
@@ -54,19 +53,12 @@ module.exports = {
 	optimization: {
 		splitChunks: {
 			cacheGroups: {
-				vendor: {
-					name: "vendors",
-					test: /[\\/]node_modules[\\/]/,
-					chunks: "all",
-					enforce: true,
-				},
-				// Merge all the CSS into one file
-				styles: {
-					name: "styles",
-					test: /\.css$/,
-					chunks: "all",
-					enforce: true,
-				},
+				// vendor: {
+				// 	name: "vendors",
+				// 	test: /[\\/]node_modules[\\/]/,
+				// 	chunks: "all",
+				// 	enforce: true,
+				// },
 			},
 		},
 	},
@@ -162,30 +154,9 @@ module.exports = {
 		}),
 		// plugin to extract css file
 		new MiniCssExtractPlugin({
-			filename: "[name].bundle.css",
+			filename: "[name].css",
 			chunkFilename: "[id].css",
 		}),
+		new FixStyleOnlyEntriesPlugin(),
 	],
-
-	// chunks optimization - since webpack 4, what is it...?
-	// read: https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
-	// optimization: {
-	// 	splitChunks: {
-	// 		cacheGroups: {
-	// 			vendor: {
-	// 				name: 'vendors',
-	// 				test: /[\\/]node_modules[\\/]/,
-	// 				chunks: 'all',
-	// 				enforce: true,
-	// 			},
-	// 			// Merge all the CSS into one file
-	// 			styles: {
-	// 				name: 'styles',
-	// 				test: /\.css$/,
-	// 				chunks: 'all',
-	// 				enforce: true,
-	// 			},
-	// 		},
-	// 	},
-	// },
 };

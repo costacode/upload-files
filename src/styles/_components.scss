@@ -9,9 +9,6 @@
 	margin: 0 auto;
 	text-align: center;
 	padding: 20px;
-	h1 {
-		font-family: $alternativeFont;
-	}
 	p {
 		text-align: left;
 		padding: 0;
@@ -39,7 +36,6 @@ a.button {
 	min-width: 132px;
 	text-shadow: 0 0 3px rgba(0, 0, 0, 0.33);
 	@include font-size(18);
-	font-family: $sansationFont;
 	font-weight: normal;
 	cursor: pointer;
 	line-height: 1.4em;

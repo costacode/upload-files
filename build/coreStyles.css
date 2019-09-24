@@ -1,11 +1,11 @@
-/* line 4, src/sass/_generic.scss */
+/* line 4, src/styles/_generic.scss */
 *,
 *:before,
 *:after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-/* line 10, src/sass/_generic.scss */
+/* line 10, src/styles/_generic.scss */
 div,
 main,
 article,
@@ -22,20 +22,17 @@ section {
   margin: 0;
   padding: 0; }
 
-/* line 28, src/sass/_generic.scss */
-::-moz-selection {
-  background: #8bb9ae;
-  color: #333; }
+/* line 28, src/styles/_generic.scss */
 ::selection {
   background: #8bb9ae;
   color: #333; }
 
-/* line 33, src/sass/_generic.scss */
+/* line 33, src/styles/_generic.scss */
 ::-moz-selection {
   background: #8bb9ae;
   color: #333; }
 
-/* line 38, src/sass/_generic.scss */
+/* line 38, src/styles/_generic.scss */
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
@@ -44,16 +41,16 @@ html {
           text-size-adjust: 100%;
   overflow-x: hidden; }
 
-/* line 44, src/sass/_generic.scss */
+/* line 44, src/styles/_generic.scss */
 nav ul {
   list-style: none;
   padding: 0; }
 
-/* line 49, src/sass/_generic.scss */
+/* line 49, src/styles/_generic.scss */
 a {
   text-decoration: none; }
 
-/* line 53, src/sass/_generic.scss */
+/* line 53, src/styles/_generic.scss */
 iframe,
 object,
 embed,
@@ -61,34 +58,34 @@ img {
   border: 0;
   max-width: 100%; }
 
-/* line 61, src/sass/_generic.scss */
+/* line 61, src/styles/_generic.scss */
 abbr {
   border-bottom: 1px dotted #666;
   cursor: help; }
 
-/* line 66, src/sass/_generic.scss */
+/* line 66, src/styles/_generic.scss */
 address {
   font-style: normal; }
 
-/* line 70, src/sass/_generic.scss */
+/* line 70, src/styles/_generic.scss */
 b,
 strong {
   font-weight: 600; }
 
-/* line 75, src/sass/_generic.scss */
+/* line 75, src/styles/_generic.scss */
 i,
 em {
   font-style: italic; }
 
-/* line 80, src/sass/_generic.scss */
+/* line 80, src/styles/_generic.scss */
 .spacing, * + * {
   margin-top: 1.1em; }
   @media (min-width: 47.5em) {
-    /* line 80, src/sass/_generic.scss */
+    /* line 80, src/styles/_generic.scss */
     .spacing, * + * {
       margin-top: 1.85em; } }
 
-/* line 105, src/sass/_generic.scss */
+/* line 105, src/styles/_generic.scss */
 li + li,
 i,
 option,
@@ -107,31 +104,23 @@ h3:first-child,
 table:first-child {
   margin-top: 0; }
 
-/* line 125, src/sass/_generic.scss */
+/* line 125, src/styles/_generic.scss */
 html {
   font-size: 62.5%; }
 
-/* line 129, src/sass/_generic.scss */
+/* line 129, src/styles/_generic.scss */
 body {
   font-size: 16px; }
 
-@font-face {
-  font-family: "sansation";
-  src: url("./fonts/sansation_regular.woff") format("woff"), url("./fonts/sansation_regular.eot") format("embedded-opentype"), url("./fonts/sansation_regular.ttf") format("truetype"); }
-
-@font-face {
-  font-family: "Titillium";
-  src: url("./fonts/titilliumtext22l005.woff") format("woff"), url("./fonts/titilliumtext22l005.eot") format("embedded-opentype"), url("./fonts/titilliumtext22l005.ttf") format("truetype"); }
-
-/* line 1, src/sass/_elements.scss */
+/* line 1, src/styles/_elements.scss */
 body {
-  margin: 0;
+  margin: 1rem;
   font-family: "myriad-pro", helvetica, arial, sans-serif;
   font-weight: 400;
   color: #716558;
   line-height: 1; }
 
-/* line 12, src/sass/_elements.scss */
+/* line 13, src/styles/_elements.scss */
 p,
 address,
 ul,
@@ -141,7 +130,7 @@ dd {
   margin-bottom: 0;
   font-size: 1.4rem;
   line-height: 1.5; }
-  /* line 19, src/sass/_elements.scss */
+  /* line 20, src/styles/_elements.scss */
   p:first-child,
   address:first-child,
   ul:first-child,
@@ -150,7 +139,7 @@ dd {
   dd:first-child {
     margin-top: 0; }
   @media (min-width: 29.9375em) {
-    /* line 12, src/sass/_elements.scss */
+    /* line 13, src/styles/_elements.scss */
     p,
     address,
     ul,
@@ -159,7 +148,7 @@ dd {
     dd {
       font-size: 1.5rem; } }
   @media (min-width: 47.5em) {
-    /* line 12, src/sass/_elements.scss */
+    /* line 13, src/styles/_elements.scss */
     p,
     address,
     ul,
@@ -168,30 +157,29 @@ dd {
     dd {
       font-size: 1.6rem; } }
 
-/* line 32, src/sass/_elements.scss */
+/* line 33, src/styles/_elements.scss */
 small,
 .small {
   font-size: 1.3rem; }
 
-/* line 37, src/sass/_elements.scss */
+/* line 38, src/styles/_elements.scss */
 address {
   font-size: 2.1rem;
   font-family: "myriad-pro", helvetica, arial, sans-serif;
   font-weight: 300;
   line-height: 1.4; }
 
-/* line 47, src/sass/_elements.scss */
+/* line 48, src/styles/_elements.scss */
 a {
   text-decoration: underline;
   -webkit-text-decoration-skip: ink;
-          text-decoration-skip: ink;
-  text-decoration-skip-ink: auto;
+          text-decoration-skip-ink: auto;
   color: #716558; }
-  /* line 52, src/sass/_elements.scss */
+  /* line 52, src/styles/_elements.scss */
   a:hover {
     color: #8bb9ae; }
 
-/* line 60, src/sass/_elements.scss */
+/* line 60, src/styles/_elements.scss */
 h1,
 h2,
 h3,
@@ -204,50 +192,50 @@ th {
   font-weight: 300;
   margin-bottom: 0; }
 
-/* line 73, src/sass/_elements.scss */
+/* line 73, src/styles/_elements.scss */
 h1 {
   line-height: 1.1;
   font-size: 3.2rem; }
   @media (min-width: 47.5em) {
-    /* line 73, src/sass/_elements.scss */
+    /* line 73, src/styles/_elements.scss */
     h1 {
       font-size: 4.8rem;
       line-height: 1.2; } }
 
-/* line 82, src/sass/_elements.scss */
+/* line 82, src/styles/_elements.scss */
 h2 {
   font-size: 2.5rem; }
   @media (min-width: 47.5em) {
-    /* line 82, src/sass/_elements.scss */
+    /* line 82, src/styles/_elements.scss */
     h2 {
       font-size: 2.8rem; } }
 
-/* line 89, src/sass/_elements.scss */
+/* line 89, src/styles/_elements.scss */
 h3,
 dt {
   font-size: 2.1rem; }
   @media (min-width: 47.5em) {
-    /* line 89, src/sass/_elements.scss */
+    /* line 89, src/styles/_elements.scss */
     h3,
     dt {
       font-size: 2.5rem; } }
 
-/* line 97, src/sass/_elements.scss */
+/* line 97, src/styles/_elements.scss */
 h4 {
   font-size: 1.8rem; }
 
-/* line 104, src/sass/_elements.scss */
+/* line 104, src/styles/_elements.scss */
 article ul,
 dl,
 ol {
   padding: 0 30px 0 0;
   text-align: left; }
 
-/* line 111, src/sass/_elements.scss */
+/* line 111, src/styles/_elements.scss */
 ol {
   margin-left: 1.2em; }
 
-/* line 116, src/sass/_elements.scss */
+/* line 116, src/styles/_elements.scss */
 article ul li:before,
 dt:before {
   content: "";
@@ -258,34 +246,27 @@ dt:before {
   margin: 0.6em 0 0 -2em;
   border-radius: 50%; }
 
-/* line 127, src/sass/_elements.scss */
+/* line 127, src/styles/_elements.scss */
 article li {
   padding: 0 0 0 2em; }
 
-/* line 131, src/sass/_elements.scss */
+/* line 131, src/styles/_elements.scss */
 article ol li {
   padding: 0 0 0 1em; }
 
-/* line 135, src/sass/_elements.scss */
+/* line 135, src/styles/_elements.scss */
 nav li {
   padding: 0; }
 
-/* line 139, src/sass/_elements.scss */
+/* line 139, src/styles/_elements.scss */
 nav li:before {
   display: none; }
 
-/* line 146, src/sass/_elements.scss */
+/* line 146, src/styles/_elements.scss */
 img {
   vertical-align: middle; }
 
-/* line 159, src/sass/_elements.scss */
-cite {
-  font-style: normal;
-  display: block;
-  font-size: 1.4rem;
-  line-height: 20px; }
-
-/* line 4, src/sass/_components.scss */
+/* line 4, src/styles/_components.scss */
 .starterWrap {
   background-color: #cbdaaa;
   color: #333;
@@ -294,16 +275,13 @@ cite {
   margin: 0 auto;
   text-align: center;
   padding: 20px; }
-  /* line 12, src/sass/_components.scss */
-  .starterWrap h1 {
-    font-family: Titillium, Georgia, Arial, sans-serif; }
-  /* line 15, src/sass/_components.scss */
+  /* line 12, src/styles/_components.scss */
   .starterWrap p {
     text-align: left;
     padding: 0;
     margin: 1em; }
 
-/* line 29, src/sass/_components.scss */
+/* line 26, src/styles/_components.scss */
 .button,
 a.button {
   position: relative;
@@ -317,18 +295,17 @@ a.button {
   min-width: 132px;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.33);
   font-size: 1.8rem;
-  font-family: sansation, Georgia, Arial, sans-serif;
   font-weight: normal;
   cursor: pointer;
   line-height: 1.4em; }
-  /* line 46, src/sass/_components.scss */
+  /* line 42, src/styles/_components.scss */
   .button:hover,
   a.button:hover {
     background-color: #e1e9ce; }
-  /* line 49, src/sass/_components.scss */
+  /* line 45, src/styles/_components.scss */
   .button:active,
   a.button:active {
     top: 1px; }
 
 
-/*# sourceMappingURL=maya.bundle.css.map*/
+/*# sourceMappingURL=coreStyles.css.map*/

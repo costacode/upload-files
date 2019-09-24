@@ -1,5 +1,6 @@
 body {
-	margin: 0;
+	margin: 1rem;
+
 	font-family: $bodyFont;
 	font-weight: $bodyWeight;
 	color: $bodyColor;
@@ -46,7 +47,6 @@ address {
 // --------------------------------------------
 a {
 	text-decoration: underline;
-	text-decoration-skip: ink;
 	text-decoration-skip-ink: auto;
 	color: $bodyColor;
 	&:hover {
@@ -145,20 +145,4 @@ nav li:before {
 // --------------------------------------------
 img {
 	vertical-align: middle;
-}
-
-// --------------------------------------------
-// BLOCKQUOTES
-// --------------------------------------------
-blockquote {
-}
-
-blockquote p {
-}
-
-cite {
-	font-style: normal;
-	display: block;
-	@include font-size(14);
-	line-height: 20px;
 }
